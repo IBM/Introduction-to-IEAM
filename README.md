@@ -1,6 +1,6 @@
 # Introduction to IBM Edge Application Manager - IEAM
 
-Introduction to IBM Edge Application Manager - Think 2022 Lab #1133 workbook
+Introduction to IBM Edge Application Manager - Think Academy Online 2022 Lab #1133 lab guide workbook
 
 Successfully deploy models to the edge using IBM Edge Application Manager workload orchestration
 
@@ -8,11 +8,12 @@ Successfully deploy models to the edge using IBM Edge Application Manager worklo
 
 Gain hands-on experience with the IBM Edge Application Manager web management console. Install the Horizon agent, then deploy and manage a Horizon edge service on your edge device.
 
-This Think Academy lab session is available for IBM Think 2022 conference attendees (Virtual Sign up for Free!)
+This Think Academy lab session is available for [IBM Think Academy Online 2022](https://www.ibm.com/events/event/pages/ibm/u1b2gvmb/1581037797007001pjad.html) attendees (Virtual Sign up for Free!)
 
 ## Prerequistes
 
 - Create a free [IBM Cloud account](https://cloud.ibm.com/registration)
+- Register for the [IBM Think Academy Online 2022](https://www.ibm.com/events/event/widget/ibm/u1b2gvmb/ibm-catalog?search=1133) lab session #1133
 
 ## Lab Objectives
 
@@ -26,7 +27,7 @@ This Think Academy lab session is available for IBM Think 2022 conference attend
 
 <div style="page-break-after: always"></div>
 
-## Access to the Think 2022 Lab Environment
+## Access to the Think Academy Online 2022 Lab Environment
 
 - Select **ibmuser**
   ![VM login screen](screenshots/VM-login-screen.png)
@@ -112,7 +113,7 @@ The following diagram depicts the high-level topology for a typical edge computi
 In this section, explore the IEAM mgmt web console.
 
 - Click either the Firefox or Chrome browser icon on your desktop
-  - **Note** Launch IBM Edge Application Manager **IEAM Login** from the browser toolbar.
+  - **Note:** Launch IBM Edge Application Manager by selecting **IEAM Login** from the browser toolbar.
   - You may also need to click on the Advanced button and proceed to the self-signed certificate.
   - Choose **Default Authenication**.
 - Login into the IEAM console
@@ -122,7 +123,7 @@ In this section, explore the IEAM mgmt web console.
 - **Note:** If you receive a `403` error, modify the browser URL in the address bar, remove the `common-nav/403` and replace it with `edge`.  Or click on the `IEAM Web Console` link in the browser Bookmark bar.
 - Nodes
   - Manage the node properties and constraints
-  - **Note** there are only a few edge nodes registered. In a subsequent section of the lab, your edge node will appear here.
+  - **Note:** there are only a few edge nodes registered. In a subsequent section of the lab, your edge node will appear here.
   ![IEAM node list](screenshots/VM-IEAM-node-list.png)
 - Services
   ![IEAM services tiles](screenshots/VM-IEAM-Services-tiles.png)
@@ -130,6 +131,8 @@ In this section, explore the IEAM mgmt web console.
   ![IEAM patterns list](screenshots/VM-IEAM-Patterns-list.png)
 - Policies
   ![IEAM policies list](screenshots/VM-IEAM-Policies-list.png)
+
+<div style="page-break-after: always"></div>
 
 ### Explore the "Edge" Device
 
@@ -139,7 +142,7 @@ The virtual machine lab environment provided during the Think 2022 lab will be y
   ![Open a Terminal](screenshots/VM-Terminal-launch.png)
 
 - To simplify the edge lab setup, the HZN environment variables have been pre-configured in the ~/.bashrc profile
-<div style="page-break-after: always"></div>
+
 - Inspect the HZN environment variables by entering this shell pipeline
 
   ```sh
@@ -147,6 +150,8 @@ The virtual machine lab environment provided during the Think 2022 lab will be y
   ```
 
   ![HZN env vars](screenshots/VM-Terminal-HZN-envvars.png) **Note:** (the urls and iamapikey have been blurred in the public screenshots)
+
+<div style="page-break-after: always"></div>
 
 - Set your HZN_NODE_ID environment variable to something unique which will allow you to find your "edge" device in the IEAM management console.  eg `think-edge-<yourname>`
 
@@ -157,7 +162,12 @@ The virtual machine lab environment provided during the Think 2022 lab will be y
    ![Set HZN Node ID env var](screenshots/VM-Terminal-HZN-node-id.png)
 
 - **Stop** : Did you `export HZN_NODE_ID=think-edge-<yourname>` as required in the above step?  You won't be able to find your device in the IEAM mgmt console if you don't set a node name.
-- Install / Register your edge node
+
+<div style="page-break-after: always"></div>
+
+### Install / Register your edge node
+
+- Enter the following command in the Terminal window to install and register the agent into the IEAM management hub.
 
   ```sh
   sudo -s -E ./agent-install.sh -i 'css:' -p IBM/pattern-ibm.helloworld -w '*' -T 120
@@ -316,6 +326,9 @@ The source / instructions to build the container are posted in the [web-hello-py
   ```
 
   ![HZN agreement list](screenshots/VM-Terminal-agreement.png)
+
+<div style="page-break-after: always"></div>
+
 - Test your web-hello containerized workload
 
   ```sh
@@ -417,7 +430,7 @@ The source / instructions to build the container are posted in the [openhorizon-
 
 - Instead of publishing the policy from the `hzn` command line interface using and `make publish-policy`, in this exercise, open the IEAM web console browser page again from the bookmark bar.
 
-  - Select the **Services** tab. If you sort the services in table format, you will see the **cpu-mqtt-example-<yourname>** that was just published from the **hzn** CLI.
+  - Select the **Services** tab. If you sort the services in table format, you will see the **cpu-mqtt-example-\<yourname\>** service that was just published from the **hzn** CLI.
     ![IEAM Published Service](screenshots/VM-IEAM-Services-published.png)
   - Select your new service.
     ![IEAM Service Details](screenshots/VM-IEAM-Services-details.png)
@@ -431,6 +444,9 @@ The source / instructions to build the container are posted in the [openhorizon-
     ![IEAM Name Policy](screenshots/VM-IEAM-Policy-name.png)
   - Search / Find the `cpu-mqtt-example-<yourname>` service, press the **Add +** button and the **Next** button.
     ![Add a deployment policy](screenshots/VM-IEAM-Policy-deploy.png)
+
+<div style="page-break-after: always"></div>
+
   - On the **Configure Variables** panel, enter the **MQTT_ORGID** that will be dynamically added to the Service container. (For security reasons, the instructor did not want to add all the environment variables credentials to the service.json file hosted on GitHub).
 
     The correct value of the MQTT_ORGID is:
@@ -456,7 +472,7 @@ The source / instructions to build the container are posted in the [openhorizon-
   watch hzn agreement list
   ```
 
-- Observe the CPU data measured by your containerize workload by viewing the instructors CPU Metrics Dashboard
+- Observe the CPU data measured by your containerize workload by viewing the instructor's [CPU Metrics Dashboard](https://node-red-cpu-edge-telemetry.b113cqgixda.us-south.codeengine.appdomain.cloud/ui)
 
   ![Chart of CPU Metrics results](https://github.com/johnwalicki/openhorizon-edge-cpu-mqtt/raw/main/CPU-Edge-Node-Telemetry-Data.png)
 
