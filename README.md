@@ -247,7 +247,7 @@ hzn exchange pattern list IBM/
 hzn exchange deployment listpolicy
 ```
 
-![HZN cli](screenshots/VM-Terminal-HZN-envvars.png)
+![HZN cli](screenshots/VM-Terminal-HZN-ex-dep-list.png)
 
 <div style="page-break-after: always"></div>
 
@@ -428,7 +428,7 @@ The source / instructions to build the container are posted in the [openhorizon-
   make publish-service
   ```
 
-- Instead of publishing the policy from the `hzn` command line interface using and `make publish-policy`, in this exercise, open the IEAM web console browser page again from the bookmark bar.
+- Instead of publishing the policy from the `hzn` command line interface using `make publish-policy`, in this exercise, open the IEAM web console browser page again from the bookmark bar.
 
   - Select the **Services** tab. If you sort the services in table format, you will see the **cpu-mqtt-example-\<yourname\>** service that was just published from the **hzn** CLI.
     ![IEAM Published Service](screenshots/VM-IEAM-Services-published.png)
