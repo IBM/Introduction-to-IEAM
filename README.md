@@ -179,13 +179,15 @@ The virtual machine lab environment provided during the Think 2022 lab will be y
 - When the node registration completes, it will have also configured an `IBM/pattern-ibm.helloworld` pattern to execute on this node.
   ![Horizon Agent Install](screenshots/VM-Terminal-agent-install-success.png)
 
+<div style="page-break-after: always"></div>
+
 - Query the Horizon agent version that was installed
 
-```sh
-hzn version
-Horizon CLI version: 2.29.0-595
-Horizon Agent version: 2.29.0-595
-```
+  ```sh
+  hzn version
+  Horizon CLI version: 2.29.0-595
+  Horizon Agent version: 2.29.0-595
+  ```
 
 - Return to the IEAM web console.  Switch to the `Nodes` section, Click on the `Refresh` button and find your device.
 
@@ -198,6 +200,8 @@ Horizon Agent version: 2.29.0-595
     export HZN_NODE_ID=think-edge-<yourname>
     sudo -s -E ./agent-install.sh -i 'css:' -p IBM/pattern-ibm.helloworld -w '*' -T 120
     ```
+
+<div style="page-break-after: always"></div>
 
 - Return to the Terminal window. See what agreements are running.
 
@@ -440,6 +444,9 @@ The source / instructions to build the container are posted in the [openhorizon-
 - Now that the Service is defined, add a Policy
   - Select the **Policies** tab and click on the **Add policy** button.
     ![IEAM Add Policy](screenshots/VM-IEAM-Policy-Add.png)
+
+<div style="page-break-after: always"></div>
+
   - Give your policy a name, eg `policy-cpu-mqtt-example-<yourname>` and click the **Next** button.
     ![IEAM Name Policy](screenshots/VM-IEAM-Policy-name.png)
   - Search / Find the `cpu-mqtt-example-<yourname>` service, press the **Add +** button and the **Next** button.
